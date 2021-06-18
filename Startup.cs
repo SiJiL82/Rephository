@@ -38,6 +38,7 @@ namespace Rephository
             #region "EF DBContext"
             services.AddDbContext<RephositoryContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("RephositoryContext")));
+                    services.AddDatabaseDeveloperPageExceptionFilter();
             #endregion
 
             #region "Authentication Providers"
