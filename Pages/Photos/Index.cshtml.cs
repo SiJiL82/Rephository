@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Rephository;
 using Rephository.Data;
+using Rephository.Models;
 
 namespace Rephository.Pages.Photos
 {

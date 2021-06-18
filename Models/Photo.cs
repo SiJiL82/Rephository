@@ -1,6 +1,6 @@
 using System;
 
-namespace Rephository
+namespace Rephository.Models
 {
     public class Photo
     {

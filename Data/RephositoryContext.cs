@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Rephository;
+using Rephository.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace Rephository.Data
 {
@@ -13,12 +15,24 @@ namespace Rephository.Data
             : base(options)
         {
         }
-
-        public DbSet<Rephository.Photo> Photos { get; set; }
+        public DbSet<Rephository.Models.Photo> Photos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Photo>().ToTable("Photo");
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            var configuration = new ConfigurationBuilder()
+                .AddUserSecrets<Program>()
+                .Build();
+
+            if (!optionsBuilder.IsConfigured)
+            {
+                var connectionString = configuration["ConnectionStrings:RephositoryContext"];
+                optionsBuilder.UseSqlServer(connectionString);
+            }
         }
     }
 }

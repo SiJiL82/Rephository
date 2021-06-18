@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Rephository;
 using Rephository.Data;
+using Rephository.Models;
 
 namespace Rephository.Pages.Photos
 {
