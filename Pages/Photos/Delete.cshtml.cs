@@ -29,7 +29,7 @@ namespace Rephository.Pages.Photos
                 return NotFound();
             }
 
-            Photo = await _context.Photo.FirstOrDefaultAsync(m => m.ID == id);
+            Photo = await _context.Photos.FirstOrDefaultAsync(m => m.ID == id);
 
             if (Photo == null)
             {
@@ -45,11 +45,11 @@ namespace Rephository.Pages.Photos
                 return NotFound();
             }
 
-            Photo = await _context.Photo.FindAsync(id);
+            Photo = await _context.Photos.FindAsync(id);
 
             if (Photo != null)
             {
-                _context.Photo.Remove(Photo);
+                _context.Photos.Remove(Photo);
                 await _context.SaveChangesAsync();
             }
 

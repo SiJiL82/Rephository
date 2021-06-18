@@ -23,7 +23,7 @@ namespace Rephository.Pages.Photos
 
         public async Task OnGetAsync()
         {
-            Photo = await _context.Photo.ToListAsync();
+            Photo = await _context.Photos.ToListAsync();
         }
     }
 }

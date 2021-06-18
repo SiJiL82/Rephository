@@ -35,7 +35,7 @@ namespace Rephository.Pages.Photos
                 return Page();
             }
 
-            _context.Photo.Add(Photo);
+            _context.Photos.Add(Photo);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

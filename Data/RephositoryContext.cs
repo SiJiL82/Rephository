@@ -14,6 +14,11 @@ namespace Rephository.Data
         {
         }
 
-        public DbSet<Rephository.Photo> Photo { get; set; }
+        public DbSet<Rephository.Photo> Photos { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Photo>().ToTable("Photo");
+        }
     }
 }
