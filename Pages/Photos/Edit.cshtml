@@ -1,0 +1,60 @@
+﻿@page
+@model Rephository.Pages.Photos.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Photo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Photo.ID" />
+            <div class="form-group">
+                <label asp-for="Photo.FileName" class="control-label"></label>
+                <input asp-for="Photo.FileName" class="form-control" />
+                <span asp-validation-for="Photo.FileName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Photo.RelativePath" class="control-label"></label>
+                <input asp-for="Photo.RelativePath" class="form-control" />
+                <span asp-validation-for="Photo.RelativePath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Photo.CreationDate" class="control-label"></label>
+                <input asp-for="Photo.CreationDate" class="form-control" />
+                <span asp-validation-for="Photo.CreationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Photo.Hash" class="control-label"></label>
+                <input asp-for="Photo.Hash" class="form-control" />
+                <span asp-validation-for="Photo.Hash" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Photo.UploadDate" class="control-label"></label>
+                <input asp-for="Photo.UploadDate" class="form-control" />
+                <span asp-validation-for="Photo.UploadDate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Photo.IsArchived" /> @Html.DisplayNameFor(model => model.Photo.IsArchived)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

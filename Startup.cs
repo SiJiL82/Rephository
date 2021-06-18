@@ -45,6 +45,9 @@ namespace Rephository
                     options.ClientId = googleAuthNSection["ClientId"];
                     options.ClientSecret = googleAuthNSection["ClientSecret"];
                 });
+
+            services.AddDbContext<RephositoryContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("RephositoryContext")));
             #endregion
         }
 
