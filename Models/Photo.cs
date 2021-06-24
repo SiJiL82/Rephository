@@ -10,8 +10,10 @@ namespace Rephository.Models
         public DateTime CreationDate { get; set; }
         public string Hash { get; set; }
         public DateTime UploadDate { get; set; }
-
+        public bool IsPrivate { get; set; }
         public bool IsArchived { get; set; }
+        public int OwnerID { get; set; }
+
 
     }
 }
